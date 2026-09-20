@@ -5,10 +5,11 @@ export default function Navbar({ style }) {
     <header className="hero-nav" style={style}>
       <a href="#top" className="nav-brand" aria-label="YNR Fishes Home">
         <div className="brand-icon-wrapper">
-          <svg className="brand-icon-svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.41 0 8 3.59 8 8 0 1.85-.63 3.55-1.69 4.9z" opacity="0.3"/>
-            <path d="M2 12c4 4 10 2 14-2-4-4-10-2-14 2z M16 10l5-3-2 5 2 5-5-3z"/>
-          </svg>
+          <img 
+            src="/assets/ynr_logo.png" 
+            alt="YNR Fishes Logo" 
+            className="brand-logo-img"
+          />
         </div>
         <span className="nav-brand-title">
           YNR <span>FISHES</span>
