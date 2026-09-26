@@ -39,75 +39,38 @@ export default function UnderwaterScene({ onScrollProgress }) {
     animIdRef.current = requestAnimationFrame(loop);
 
     // =========================================================================
-    // SCROLLING INTERACTIVITY (Mouse wheel, trackpad, touch swipe, mouse drag)
-    // Directly drives the fish swimming kinematics without scrolling page downward
+    // NATIVE SCROLL INTERACTIVITY
+    // Directly binds the 3D fish animation to the actual page scroll position.
+    // This guarantees the animation is exactly 100% complete when the section ends.
     // =========================================================================
-    const handleWheel = (e) => {
-      e.preventDefault();
-      engine.addScrollDelta(e.deltaY);
-    };
-
-    let touchStartY = 0;
-    const handleTouchStart = (e) => {
-      if (e.touches.length === 1) {
-        touchStartY = e.touches[0].clientY;
-      }
-    };
-    const handleTouchMove = (e) => {
-      if (e.touches.length === 1) {
-        const currentY = e.touches[0].clientY;
-        const deltaY = (touchStartY - currentY) * 2.2;
-        touchStartY = currentY;
-        engine.addScrollDelta(deltaY);
-      }
-    };
-
-    let isDragging = false;
-    let dragStartY = 0;
-    const handleMouseDown = (e) => {
-      // Only left mouse button
-      if (e.button === 0) {
-        isDragging = true;
-        dragStartY = e.clientY;
-      }
-    };
-    const handleMouseMove = (e) => {
-      if (!isDragging) return;
-      const deltaY = (dragStartY - e.clientY) * 2.0;
-      dragStartY = e.clientY;
-      engine.addScrollDelta(deltaY);
-    };
-    const handleMouseUp = () => {
-      isDragging = false;
-    };
-
-    const handleKeyDown = (e) => {
-      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
-        engine.addScrollDelta(120);
-      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-        engine.addScrollDelta(-120);
+    const handleScroll = () => {
+      const heroTrack = document.getElementById('hero');
+      if (heroTrack) {
+        // The total scrollable distance to get past the hero section
+        const scrollRange = heroTrack.offsetHeight - window.innerHeight;
+        const currentScroll = window.scrollY;
+        
+        let progress = 0;
+        if (scrollRange > 0) {
+          progress = currentScroll / scrollRange;
+        }
+        
+        // Clamp between 0 and 1
+        const clampedProgress = Math.max(0, Math.min(1, progress));
+        engine.setScrollProgress(clampedProgress);
       }
     };
 
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Trigger once on mount to set initial state
+    handleScroll();
 
     return () => {
       isActive = false;
       if (animIdRef.current) cancelAnimationFrame(animIdRef.current);
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

@@ -8,7 +8,7 @@ export default function BrandContent({ style }) {
       {/* Lineage Badge */}
       <div className="brand-badge">
         <span className="badge-dot" />
-        <span>Since 30+ Years</span>
+        <span>30+ Years of Experience</span>
       </div>
 
       {/* Main Brand Title */}
@@ -25,8 +25,9 @@ export default function BrandContent({ style }) {
 
       {/* Supporting lineage description */}
       <p className="brand-subtext">
-        Fresh Fish &amp; Seafood Since 30+ Years &bull; Sourced Daily from Pristine Waters
+        Fresh Fish &amp; Seafood from a Trusted Local Fish Market
       </p>
+
     </div>
   );
 }

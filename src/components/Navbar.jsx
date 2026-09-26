@@ -17,13 +17,19 @@ export default function Navbar({ style }) {
       </a>
 
       <div className="nav-meta-group">
-        <div className="nav-info-chip" title="Chemmumiahpet, Ravindra Nagar, Utukuru, Andhra Pradesh">
+        <a 
+          href="https://www.google.com/maps/search/?api=1&query=Chemmumiahpet,+Ravindra+Nagar,+Utukuru,+Andhra+Pradesh+516004" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="nav-info-chip" 
+          title="Open in Google Maps"
+        >
           <svg className="nav-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
             <circle cx="12" cy="9" r="2.5" />
           </svg>
           <span>Ravindra Nagar, Utukuru, AP</span>
-        </div>
+        </a>
 
         <a href="tel:+919849313889" className="nav-contact-link" aria-label="Call YNR Fishes">
           <svg className="nav-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -1,0 +1,199 @@
+/* ==========================================================================
+   Products Section Styling
+   ========================================================================== */
+
+.products-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 2rem 8rem;
+  background-color: var(--ocean-abyss);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.products-container {
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.product-card {
+  position: relative;
+  border-radius: 20px;
+  background: var(--ocean-depth-2);
+  padding: 1px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  animation: fadeUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: var(--ocean-current);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  z-index: 3;
+}
+
+.product-card-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background: var(--ocean-deep);
+  padding: 2.5rem 2rem;
+  border-radius: 19px;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.product-card-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 100% 0%, var(--ocean-depth-2) 0%, transparent 60%);
+  border-radius: 19px;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+  opacity: 0.5;
+}
+
+.product-card:hover .product-card-bg {
+  opacity: 1;
+  background: radial-gradient(circle at 100% 0%, var(--ocean-mid) 0%, transparent 70%);
+}
+
+.product-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  text-shadow: none;
+}
+
+.product-description {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.product-link {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.product-link .arrow {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+.product-link:hover {
+  color: var(--text-primary);
+  text-shadow: none;
+}
+
+.product-card:hover .product-link .arrow {
+  transform: translateX(6px);
+}
+
+/* Light rays crossing the products section */
+.light-rays-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, transparent 40%, rgba(61, 192, 204, 0.03) 45%, transparent 50%),
+    linear-gradient(-45deg, transparent 40%, rgba(61, 192, 204, 0.03) 45%, transparent 50%);
+  background-size: 200% 200%;
+  animation: shimmer 15s infinite linear;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% -100%; }
+  100% { background-position: 100% 100%; }
+}
+
+@media (max-width: 768px) {
+  .products-section {
+    padding: 3rem 3px 4rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .product-card-inner {
+    padding: 1.5rem 1rem;
+  }
+
+  .product-img-wrapper {
+    height: 150px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .product-title {
+    font-size: 1.3rem;
+  }
+
+  .product-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}

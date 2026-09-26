@@ -1,0 +1,144 @@
+/* ==========================================================================
+   About Section Styling
+   ========================================================================== */
+
+.about-section {
+  position: relative;
+  width: 100%;
+  padding: 8rem 2rem;
+  background-color: var(--ocean-abyss);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #d6f6f9;
+  z-index: 10;
+}
+
+.about-container {
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ocean-aqua-soft);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--ocean-mid);
+  margin: 1.5rem auto 0;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--ocean-deep);
+  border: 1px solid var(--ocean-depth-2);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.about-text {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--text-soft);
+  letter-spacing: 0.03em;
+}
+
+.about-text.highlight {
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  color: var(--text-primary);
+}
+
+.about-text strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Decorative Bubbles */
+.about-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decor-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent 70%);
+  border: 1px solid rgba(114, 222, 229, 0.2);
+  box-shadow: 0 0 15px rgba(61, 192, 204, 0.1);
+}
+
+.decor-bubble.b1 {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: 15%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.decor-bubble.b2 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  right: 15%;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.decor-bubble.b3 {
+  width: 50px;
+  height: 50px;
+  top: 40%;
+  right: 25%;
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-30px) scale(1.05); opacity: 0.8; }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 3rem 3px;
+  }
+  
+  .about-content {
+    padding: 1.5rem 1rem;
+    gap: 0.75rem;
+  }
+  
+  .section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .decor-bubble {
+    opacity: 0.3;
+  }
+}
