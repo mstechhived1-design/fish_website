@@ -4,31 +4,31 @@
    ========================================================================== */
 
 :root {
-  /* Bright Water / Tropical Aqua Palette */
-  --ocean-abyss: #e0f7fa;      /* Main background (light water cyan) */
-  --ocean-deep: #b2ebf2;       /* Slightly deeper aqua */
-  --ocean-depth-2: #80deea;    /* Accent aqua */
-  --ocean-mid: #4dd0e1;        /* Mid-cyan */
-  --ocean-current: #26c6da;
-  --ocean-teal: #00acc1;
-  --ocean-cyan-deep: #0097a7;
-  --ocean-aquamarine: #00838f;
-  --ocean-aqua-soft: #006064;  /* Main text/foreground (deep teal) */
+  /* Deep Premium Ocean Palette */
+  --ocean-abyss: #010A14;      /* Main background (deep navy/black) */
+  --ocean-deep: #031424;       /* Deep slate/navy */
+  --ocean-depth-2: #072a42;    /* Navy accent */
+  --ocean-mid: #0e5672;        /* Mid-ocean blue */
+  --ocean-current: #13778f;    
+  --ocean-teal: #1e879f;
+  --ocean-cyan-deep: #2a9db5;
+  --ocean-aquamarine: #3dc0cc;
+  --ocean-aqua-soft: #72dee5;  /* Accent color (bright cyan) */
   --ocean-shimmer: #ffffff;    /* White highlight */
   
   /* Text & Highlight Tones */
-  --text-primary: #004d40;
-  --text-soft: #00695c;
-  --text-muted: #00897b;
-  --text-dim: #4db6ac;
-  --text-cream: #ffffff;
-  --gold-accent: #ffca28;
-  --gold-soft: #ffe082;
+  --text-primary: #ffffff;
+  --text-soft: #b0c4de;
+  --text-muted: #8aa4b8;
+  --text-dim: #5c7b91;
+  --text-cream: #f8f9fa;
+  --gold-accent: #F5C144;
+  --gold-soft: #FFF2A8;
   
   /* Glassmorphism & Overlays */
-  --glass-bg: rgba(224, 247, 250, 0.45);
-  --glass-border: rgba(0, 172, 193, 0.18);
-  --glass-glow: rgba(255, 255, 255, 0.5);
+  --glass-bg: rgba(3, 20, 36, 0.6);
+  --glass-border: rgba(61, 192, 204, 0.2);
+  --glass-glow: rgba(114, 222, 229, 0.1);
   
   /* Typography */
   --font-display: 'Cinzel', serif, Georgia;
@@ -55,7 +55,6 @@ html {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
@@ -74,19 +73,7 @@ body {
 }
 
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  min-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  section {
-    min-height: auto;
-    scroll-snap-align: none; /* Let mobile scroll naturally for tight layouts */
-  }
-  html {
-    scroll-snap-type: none; /* Disable snapping on mobile for tighter scroll */
-  }
+  position: relative;
 }
 
 /* Oceanic Neon Custom Scrollbar */

@@ -1,42 +1,61 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 export default function Navbar({ style }) {
+  const { cartCount, setIsCartOpen } = useCart();
+
   return (
     <header className="hero-nav" style={style}>
-      <a href="#top" className="nav-brand" aria-label="YNR Fishes Home">
+      <Link to="/" className="nav-brand" aria-label="YNR Fishes Home">
         <div className="brand-icon-wrapper">
           <img 
-            src="/assets/ynr_logo.png" 
+            src="/assets/ynr_logo_hd.jpg" 
             alt="YNR Fishes Logo" 
             className="brand-logo-img"
           />
         </div>
-        <span className="nav-brand-title">
-          YNR <span>FISHES</span>
-        </span>
-      </a>
+      </Link>
 
       <div className="nav-meta-group">
-        <a 
-          href="https://www.google.com/maps/search/?api=1&query=Chemmumiahpet,+Ravindra+Nagar,+Utukuru,+Andhra+Pradesh+516004" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="nav-info-chip" 
-          title="Open in Google Maps"
+        <Link to="/about" className="nav-info-chip">
+          <span>About Us</span>
+        </Link>
+        <Link to="/services" className="nav-contact-link">
+          <span>Our Services</span>
+        </Link>
+        <Link to="/products" className="nav-contact-link" style={{ marginLeft: '10px' }}>
+          <span>Products</span>
+        </Link>
+        <Link to="/gallery" className="nav-info-chip" style={{ marginLeft: '10px' }}>
+          <span>Gallery</span>
+        </Link>
+        <Link to="/contact" className="nav-info-chip" style={{ marginLeft: '10px' }}>
+          <span>Contact</span>
+        </Link>
+        
+        {/* Cart Icon */}
+        <button 
+          onClick={() => setIsCartOpen(true)}
+          style={{
+            background: 'none', border: 'none', cursor: 'pointer', marginLeft: '15px', position: 'relative',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff'
+          }}
         >
-          <svg className="nav-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-            <circle cx="12" cy="9" r="2.5" />
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
           </svg>
-          <span>Ravindra Nagar, Utukuru, AP</span>
-        </a>
-
-        <a href="tel:+919849313889" className="nav-contact-link" aria-label="Call YNR Fishes">
-          <svg className="nav-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          <span>+91 98493 13889</span>
-        </a>
+          {cartCount > 0 && (
+            <span style={{
+              position: 'absolute', top: '-8px', right: '-8px', background: '#F5C144', color: '#010A14',
+              borderRadius: '50%', padding: '2px 6px', fontSize: '0.75rem', fontWeight: 'bold'
+            }}>
+              {cartCount}
+            </span>
+          )}
+        </button>
       </div>
     </header>
   );

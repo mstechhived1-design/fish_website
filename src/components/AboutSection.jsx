@@ -16,6 +16,25 @@ export default function AboutSection() {
             The market also provides fish cleaning and cutting services, with retail and bulk/wholesale requirements accommodated based on availability.
           </p>
         </div>
+
+        {/* Leadership Section */}
+        <div className="leadership-section">
+          <div className="leader-card">
+            <img src="https://ui-avatars.com/api/?name=Yalavarthi+Nageshwar+Rao&background=0E5672&color=fff&size=200" alt="Yalavarthi Nageshwar Rao" className="leader-img" />
+            <div className="leader-info">
+              <h4 className="leader-name">Yalavarthi Nageshwar Rao</h4>
+              <p className="leader-role">Proprietor</p>
+            </div>
+          </div>
+          
+          <div className="leader-card">
+            <img src="https://ui-avatars.com/api/?name=Dr+Parimala+Sharou&background=3DC0CC&color=fff&size=200" alt="Dr. Parimala Sharou" className="leader-img" />
+            <div className="leader-info">
+              <h4 className="leader-name">Dr. Parimala Sharou</h4>
+              <p className="leader-role">M.D (Pharmacy, DMO)</p>
+            </div>
+          </div>
+        </div>
       </div>
       
       {/* Decorative underwater elements */}
