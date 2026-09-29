@@ -84,7 +84,7 @@ export default function App() {
           </a>
   
           <a 
-            href="https://www.google.com/maps/search/?api=1&query=Chemmumiahpet,+Ravindra+Nagar,+Utukuru,+Andhra+Pradesh+516004" 
+            href="https://maps.app.goo.gl/8TYhrcsoawkcYgBUA" 
             target="_blank" 
             rel="noopener noreferrer" 
             aria-label="View Location"

@@ -49,7 +49,7 @@ export default function ContactSection() {
         </div>
 
         {/* Action Buttons */}
-        <div className="contact-actions" style={{ marginTop: '2rem' }}>
+        <div className="contact-actions" style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a 
             href="https://wa.me/919849313889" 
             target="_blank" 
@@ -60,6 +60,32 @@ export default function ContactSection() {
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
             </svg>
             WhatsApp Order / Enquiry
+          </a>
+          
+          <a 
+            href="https://maps.app.goo.gl/8TYhrcsoawkcYgBUA" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="contact-button map-btn"
+            style={{ 
+              backgroundColor: '#4285F4', 
+              color: '#fff', 
+              padding: '0.8rem 1.5rem', 
+              borderRadius: '8px', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem',
+              textDecoration: 'none',
+              fontWeight: '600',
+              boxShadow: '0 4px 10px rgba(66, 133, 244, 0.3)'
+            }}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+              <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
+              <line x1="9" y1="3" x2="9" y2="18" />
+              <line x1="15" y1="6" x2="15" y2="21" />
+            </svg>
+            View on Google Maps
           </a>
         </div>
       </div>
